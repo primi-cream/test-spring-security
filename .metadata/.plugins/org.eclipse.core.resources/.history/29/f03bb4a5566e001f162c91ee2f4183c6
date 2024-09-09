@@ -1,0 +1,14 @@
+package com.example.demo.dan;
+
+import org.springframework.security.web.csrf.CsrfToken;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+public class SecurityTest {
+
+	@GetMapping("/csrf-token")
+	public CsrfToken csrfToken(HttpServletRequest req) {
+		return req.getAttribute("_csrf");
+	}
+}

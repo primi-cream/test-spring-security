@@ -1,0 +1,15 @@
+package com.example.demo.dan;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class testController {
+	
+	@GetMapping("/hi")
+	public String hi() {
+		return "hi dan";
+	}
+}
+
+record dan(String username, String description) {}

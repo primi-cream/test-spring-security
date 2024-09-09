@@ -1,0 +1,26 @@
+package com.example.demo.dan;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class testController {
+	
+	private static final List<dan> DAN_LIST = List.of(new dan("hidan","danhee"),
+			new dan("iamdan","danhee"));
+
+	@GetMapping("/dan")
+	public List<dan> danhee() {
+		return DAN_LIST ;
+	}
+	
+	@GetMapping("/users/{username}/dan")
+	public dan dan(@PathVariable String username) {
+		return DAN_LIST.get(0) ;
+	}
+}
+
+record dan(String username, String description) {}
